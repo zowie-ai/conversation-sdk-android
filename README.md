@@ -438,10 +438,13 @@ Add to your `AndroidManifest.xml`:
 
 ```xml
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 ```
 
-The SDK requests it at runtime the first time the chat asks for audio capture,
-but the request is denied immediately unless the permission is declared here.
+The SDK requests `RECORD_AUDIO` at runtime the first time the chat asks for
+audio capture, but the request is denied immediately unless the permission is
+declared here. `MODIFY_AUDIO_SETTINGS` is a normal permission (no runtime
+prompt) that the `WebView` needs to give the chat access to the microphone.
 
 ### File upload and camera
 
