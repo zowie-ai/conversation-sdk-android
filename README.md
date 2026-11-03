@@ -42,7 +42,7 @@ dependencyResolutionManagement {
 ```kotlin
 // app/build.gradle.kts
 dependencies {
-    implementation("ai.zowie:conversation-sdk:2.0.0")
+    implementation("ai.zowie:conversation-sdk:2.0.1")
 }
 ```
 
