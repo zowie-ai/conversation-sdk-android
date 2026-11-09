@@ -42,7 +42,7 @@ dependencyResolutionManagement {
 ```kotlin
 // app/build.gradle.kts
 dependencies {
-    implementation("ai.zowie:conversation-sdk:2.0.1")
+    implementation("ai.zowie:conversation-sdk:2.0.2")
 }
 ```
 
@@ -229,7 +229,7 @@ val config = zowieChatConfig(
 | ------------------------- | ------------------ | ---------------- | ------------------------------------------------------- |
 | `metadata`                | `Metadata?`        | `null`           | User attributes. `metadata.locale` also selects the AI agent's region. |
 | `externalAccessToken`     | `String?`          | `null`           | JWT for authenticated sessions; anonymous when omitted. |
-| `context`                 | `String?`          | `null`           | Custom context string passed to the AI agent.           |
+| `context`                 | `String?`          | `null`           | ID of a context set up by your Zowie TAM. It routes the conversation to the AI agent assigned to that context. |
 | `resetSession`            | `Boolean`          | `false`          | Clear any persisted session on init.                    |
 | `initialConversationMode` | `ConversationMode` | `TEXT`           | Mode the chat opens in (`TEXT` or `VOICE`).             |
 | `referral`                | `String`           | `"start"`        | Referral used for auto-start.                           |
