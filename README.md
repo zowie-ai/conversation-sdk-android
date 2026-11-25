@@ -42,7 +42,7 @@ dependencyResolutionManagement {
 ```kotlin
 // app/build.gradle.kts
 dependencies {
-    implementation("ai.zowie:conversation-sdk:2.0.2")
+    implementation("ai.zowie:conversation-sdk:2.1.0")
 }
 ```
 
@@ -285,6 +285,7 @@ defaults so you override only what you need.
 | `Minimized`          | —                              | The user tapped the minimize control.         |
 | `ConfigError`        | `error: Throwable`             | Loading the chat configuration or page failed. |
 | `GenericEvent`       | `name: String`, `params: Map<String, String>` | A backend event fired (Decision Engine). |
+| `CartItemsModified` / `onCartItemsModified` | `items: List<CartModifiedItem>` | The AI agent added products to or removed them from the cart. |
 
 ## Back handling
 
@@ -419,12 +420,22 @@ Controls the chat's color theme.
 
 Passed to `ZowieDownloadHandler`. Exactly one of `base64` or `url` is set.
 
-| Field      | Type      | Description                                                    |
-| ---------- | --------- | -------------------------------------------------------------- |
-| `filename` | `String`  | Suggested file name.                                           |
-| `mimeType` | `String?` | MIME type, when known.                                         |
-| `base64`   | `String?` | Base64 contents, for client-generated files (e.g. transcript). |
-| `url`      | `String?` | Direct download URL.                                           |
+| Field      | Type      | Description                                                                                      |
+| ---------- | --------- | ------------------------------------------------------------------------------------------------ |
+| `filename` | `String`  | Suggested file name. Empty for a `url` download the chat does not name.                          |
+| `mimeType` | `String?` | MIME type, when known.                                                                           |
+| `base64`   | `String?` | Base64 contents, for client-generated files (e.g. transcript).                                   |
+| `url`      | `String?` | Direct download URL.                                                                             |
+
+### `CartModifiedItem`
+
+Passed with `CartItemsModified`. Use it to mirror the cart changes in your app's own cart.
+
+| Field              | Type                   | Description                                  |
+| ------------------ | ---------------------- | -------------------------------------------- |
+| `productId`        | `String`               | ID of the product variant.                   |
+| `quantity`         | `Int`                  | Quantity added or removed.                   |
+| `modificationType` | `CartModificationType` | `ADDED` or `REMOVED`.                        |
 
 ## Permissions
 

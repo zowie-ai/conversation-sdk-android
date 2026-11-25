@@ -1,3 +1,8 @@
+## 2.1.0
+
+- Added the `CartItemsModified` event and `ZowieChatEventListener.onCartItemsModified`.
+- Security fixes.
+
 ## 2.0.2
 
 - Fixed: the voice blob color set in the configuration panel is applied; a `voiceBlobColor` passed in code still takes priority.
